@@ -7,7 +7,7 @@
         <h2>Part One: Let the server connect to the players</h2>
         <h6>Credit to <a href="http://ee.co.uk/help/phones-and-device/home-broadband/bright-box-wireless-router/bright-box-advanced-user-guides/bright-box-router-log-in-to-the-admin-pages">EE</a> & <a href="http://portforward.com/english/routers/port_forwarding/EE/Bright-Box-2/Minecraft_Server.htm">portforward.com</a></h6>
         <h3>Explaination</h3>
-        <p>This part makes something a bit like a wire, connecting the ip address we used from your network to the ip address we can use outside your network.</p>
+        <p>This part makes a connection between one of your computer's 65536 ports (a road leading to YourComputerTown on Network Island) and one of the router's 65536 ports (a harbour on Network Island).
         <h3>Step 1:</h3>
         <p>
             Go to your router and read the label. Write the circled password down:<br />
@@ -19,11 +19,32 @@
         </p>
         <h3>Step 3:</h3>
         <p>
-            Type in the username <pre>admin</pre> and the password you wrote down in <b>Step 1</b>. Press Login.
+            Type in the username <kbd>admin</kbd> and the password you wrote down in <b>Step 1</b>. Press Login. Scribble out the password you wrote down in <b>Step 1</b> (optional).
         </p>
         <h3>Step 4:</h3>
         <p>
-            <a href="file:///C:\Windows\system32\control.exe ncpa.cpl">Click here to open Network Settings.</a> Right-click on Ethernet and press Properties.
+            Press Windows Key + R to open Run, and paste in <kbd>control ncpa.cpl</kbd> and hit Enter. Right click on Ethernet, and click Properties. Don't change any check boxes, but select this:<br />
+            <img src="http://portforward.com/networking/windows-8-static-ip-address-lan-properties.jpg" /><br />
+            then click Properties. If you see a dot in the circle beside "Obtain an ip address automatically", follow <a href="http://portforward.com/networking/static-ip-windows-8.htm">this</a> guide (skipping steps 5 to 8), and copy down the ip address you assign. If not, copy the ip address in the IP address box. Close everything you opened in this step.
         </p>
+        <h3>Step 5:</h3>
+        <p>
+            Go back to the Router Settings Page you opened in <b>Step 2</b> and logged into in <b>Step 3</b>. Click the "Advanced" or "Advanced Settings" tab at the top.
+        </p>
+        <h3>Step 6:</h3>
+        <p>
+            Now click "NAT" in the menu on the left. Then click "Port Forwarding". This should bring up a new menu in the big space on the right.
+        </p>
+        <h3>Step 7:</h3>
+        <p>
+            In the first availible slot, fill in the following information:
+            <ul>
+                <li>LAN IP Address: Put in the final 2 digits of the IP address you wrote down in <b>Step 4</b></li>
+                <li>Protocol Type: Select "TCP&UDP"</li>
+                <li>LAN Port / Private Ports: Enter 25565 in the box(es)</li>
+                <li>Public Port(s): Pick any number between 1024 and 65535 (NOT 25565 as a security precaution), and put it in the box(es). Also write it down.</li>
+            </ul>
+        </p>
+        <h4>Make sure you still have the IP address from <b>Step 4</b> and the Public Port from <b>Step 7</b>!</h4>
     </body>
 </html>
